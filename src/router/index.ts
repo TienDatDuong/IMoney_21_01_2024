@@ -3,8 +3,12 @@ import HomeView from '../components/Home.vue'
 import AboutView from '../components/HelloWorld.vue'
 
 const routes = [
-  { path: '/', component:AboutView  },
-  { path: '/about', component: HomeView },
+  { path: '/', meta:{
+    layout: 'default'
+  }, component:AboutView, name:'default'  },
+  { path: '/about', meta:{
+    layout: 'auth'
+  }, component: HomeView, name: 'about' },
 ]
 
 const router = createRouter({
