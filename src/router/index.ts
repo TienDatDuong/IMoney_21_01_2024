@@ -2,10 +2,8 @@ import {  createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   { path: '/',
-   meta:{
-    layout: 'default'
-    },
-   component:import('../views/index.vue'),
+   component:() => import('../views/index.vue'),
+    name:'Home'
     },
   { path: '/register',
    meta:{
@@ -14,11 +12,11 @@ const routes = [
     component: () => import('../views/register.vue'),
     name: 'Register' },
     { path: '/login',
-    meta:{
-     layout: 'auth'
-     },
-     component: () => import('../views/login.vue'),
-     name: 'Login' },
+   meta:{
+    layout: 'auth'
+    },
+    component: () => import('../views/login.vue'),
+    name: 'Login' },
 ]
 
 const router = createRouter({

@@ -1,4 +1,15 @@
 <template>
-  <h1>auth layouts</h1>
-  <slot/>
+  <div>
+    <navigation-brand/>
+    <slot/>
+  </div>
+
 </template>
+<script>
+import NavigationBrand from "../component/NavigationBrand.vue";
+export default{
+  components:{
+    NavigationBrand
+  }
+};
+</script>
