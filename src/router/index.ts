@@ -6,14 +6,19 @@ const routes = [
     layout: 'default'
     },
    component:import('../views/index.vue'),
-    name:'default'
     },
   { path: '/register',
    meta:{
-    layout: 'register'
+    layout: 'auth'
     },
     component: () => import('../views/register.vue'),
-    name: 'about' },
+    name: 'Register' },
+    { path: '/login',
+    meta:{
+     layout: 'auth'
+     },
+     component: () => import('../views/login.vue'),
+     name: 'Login' },
 ]
 
 const router = createRouter({
