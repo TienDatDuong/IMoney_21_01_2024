@@ -6,7 +6,7 @@
 
 </template>
 <script>
-import NavigationBrand from "../component/NavigationBrand.vue";
+import NavigationBrand from "@/component/NavigationBrand.vue";
 export default{
   components:{
     NavigationBrand
