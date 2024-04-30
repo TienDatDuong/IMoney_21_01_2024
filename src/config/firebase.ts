@@ -1,5 +1,8 @@
 import { initializeApp } from 'firebase/app';
+import { updateDoc, serverTimestamp } from "firebase/firestore";
+import { getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword  } from "firebase/auth";
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
+import 'firebase/auth'
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyAXkxgNh6xw9WyW5Ufm6gCdOfx-YHrwYKI",
@@ -12,6 +15,8 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig)
-const db = getFirestore(app)
+const projectStore = getFirestore(app)
 
-export {db}
+const projectAuth = getAuth(app)
+
+export {projectStore,projectAuth,createUserWithEmailAndPassword,updateDoc,serverTimestamp, signInWithEmailAndPassword}
