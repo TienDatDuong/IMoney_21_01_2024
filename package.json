@@ -13,7 +13,7 @@
     "lint": "pnpm lint:eslint && pnpm lint:prettier && pnpm lint:stylelint"
   },
   "dependencies": {
-    "firebase": "^10.11.0",
+    "firebase": "^10.11.1",
     "lodash": "^4.17.21",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
