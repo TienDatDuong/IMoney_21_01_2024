@@ -23,6 +23,7 @@
       <div class="text-center w-full mt-4">
         <span class="inline-block mr-4 font-semibold">I'm a new user.</span>
           <router-link :to="{name: 'Register',params:{}}">
+            1234
            <span  class="font-bold text-primary"> Sign Up</span>
           </router-link>
       </div>
