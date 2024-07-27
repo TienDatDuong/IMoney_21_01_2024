@@ -1,4 +1,16 @@
-<template>{{ user }}</template>
+<template>
+  <div>
+    <div style="width: 200px; background-color: black;">
+    <div class="container">
+        <div class="aspect-ratio-box">
+            <img src="https://deviet.vn/wp-content/uploads/2019/04/vuong-quoc-anh.jpg" alt="Workplace" usemap="#workmap">
+        </div>
+    </div>
+</div>
+
+    <span>{{ user }}</span>
+  </div>
+</template>
 <script>
 import {computed} from 'vue'
 import { projectAuth } from '@/config/firebase';
@@ -56,46 +68,31 @@ export default{
 //     //  response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
 //   });
 
-const instance = axios.create({
-  baseURL: 'https://jsonplaceholder.typicode.com',
-  timeout: 1
-});
 
-instance.interceptors.request.use(function (config) {
-    console.log("🚀 ~ config:", config)
-    // Do something before request is sent
-    return config;
-  }, function (error) {
-    // Do something with request error
-    return Promise.reject(error);
-  });
-
-  instance.interceptors.response.use(function (response) {
-    console.log("🚀 ~ response:", response)
-    // Any status code that lie within the range of 2xx cause this function to trigger
-    // Do something with response data
-    return '2';
-  }, function (error) {
-    // Any status codes that falls outside the range of 2xx cause this function to trigger
-    // Do something with response error
-    return Promise.reject(error);
-  });
-
-// instance.defaults.headers.common['Authorization'] = AUTH_TOKEN;
-instance.get('/posts/1',{data:'5000'})
-.then(function(res){
-
-  console.log("🚀 ~ .then ~ res---->:", res)
-})
-
-
-
-// axios('https://jsonplaceholder.typicode.com/posts/1',{})
-// .then(function(res){
-//   console.log("🚀 ~ .then ~ res:", res)
-
-// })
     return {user}
   }
 }
 </script>
+<style scoped>
+  .container {
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    overflow: hidden; /* Đảm bảo hình ảnh không vượt ra ngoài khung chứa */
+  }
+
+  .aspect-ratio-box {
+    position: relative;
+    width: 100%;
+    padding-top: 177.78%; /* 4 / 3 = 1.33333 -> 75% là tỉ lệ để giữ khung hình 4:3 */
+  }
+
+  .aspect-ratio-box img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Đảm bảo hình ảnh bao phủ toàn bộ khung chứa */
+  }
+</style>
